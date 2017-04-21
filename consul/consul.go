@@ -145,6 +145,8 @@ func (c *Consul) Register(service *registry.Service) {
 	s := &consulapi.AgentServiceRegistration{
 		ID:      service.ID,
 		Name:    service.Name,
+		Port:    service.Port,
+		// Address: service.Address,
 		Check: &consulapi.AgentServiceCheck{
 			TTL:      service.Check.TTL,
 			Script:   service.Check.Script,
